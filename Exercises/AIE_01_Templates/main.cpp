@@ -37,13 +37,15 @@ int main(int argc, char** argv)
 
 	std::cout << std::endl << std::endl;
 
-	// use initialiser list on our Linked List class
-	LinkedList<int> NewList = { 10, 20, 30, 40 };
-
-	// loop through the LinkedList using range-based-for
-	for (auto& value : NewList)
-	{
-		std::cout << value << std::endl;
+	//creates a list
+	LinkedList<int> NewList2 = { 10,20,30,40 };
+	//example of remove
+	auto iter2 = std::find(NewList2.begin(), NewList2.end(), 10);
+	NewList2.Remove(iter2);
+	//looping through and displays new list
+	for (auto& iter2 : NewList2) {
+		std::cout << iter2 << std::endl;
 	}
-
+	
+	
 };

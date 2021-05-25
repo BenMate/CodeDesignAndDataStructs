@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 
 template<class T>
 class LinkedList
@@ -131,11 +131,24 @@ public:
 
 	}
 
-	void remove() {
+	Iterator Remove(Iterator iterator) {
+		Node* node = iterator.node;
 
+		if (iterator.node == m_first) {		
+			PopFront();
+		}
+		else if (iterator.node == m_last) {
+			PopBack();
+		}
+		else {
+			node->prev->next = node->next;
+			node->next->prev = node->prev;
+			delete node;
+		}
+		return Iterator(iterator.node->next);
 	}
 
-	void add() {
+	void Insert() {
 
 	}
 
