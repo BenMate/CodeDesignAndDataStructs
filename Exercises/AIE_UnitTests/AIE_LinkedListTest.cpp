@@ -104,6 +104,7 @@ namespace AIEUnitTests
 			Assert::IsTrue(list.Count() == 3);
 			
 		}
+
 		TEST_METHOD(Can_PushFront)
 		{
 			//setup the list
@@ -131,7 +132,7 @@ namespace AIEUnitTests
 			list.PopFront();
 
 			//checks if the lastnode isnt null
-			Assert::IsNotNull(list.LastNode());
+			Assert::IsNotNull(list.FirstNode());
 
 			//checks if the last node = 20
 			Assert::IsTrue(list.FirstNode()->value == 20);
@@ -139,8 +140,6 @@ namespace AIEUnitTests
 			//checks if the count went down to 3
 			Assert::IsTrue(list.Count() == 3);
 		}
-
-		
 
 		TEST_METHOD(Can_Clear) {
 			LinkedList<int> list = { 10, 20, 30, 40 };
@@ -153,16 +152,36 @@ namespace AIEUnitTests
 			Assert::IsTrue(list.Count() == 0);
 		}
 
-		/*TEST_METHOD(Can_Sort) {
-			Assert::Fail;
-		}
-
 		TEST_METHOD(Can_Insert) {
-			Assert::Fail;
+			LinkedList<int> list = { 10, 20, 30, 40 };
+
+			//fix
+			list.Insert();//0,5 ? 
+
+			Assert::IsNotNull(list.LastNode());
+			Assert::IsNotNull(list.FirstNode());
+
+			Assert::IsTrue(list.FirstNode()->value == 25);
+
+			Assert::IsTrue(list.Count() == 5);
 		}
 
 		TEST_METHOD(Can_Remove) {
-			Assert::Fail;
-		}*/
+			LinkedList<int> list = { 10, 20, 30, 40 };
+
+			list.Remove(0);
+
+			Assert::IsNotNull(list.LastNode());
+			Assert::IsNotNull(list.FirstNode());
+
+			Assert::IsTrue(list.FirstNode()->value == 20);
+
+			Assert::IsTrue(list.Count() == 3);
+		}
+
+		//TODO:
+		//TEST_METHOD(Can_Sort) {
+		//	Assert::Fail;
+		//}
 	};
 }

@@ -77,12 +77,14 @@ public:
 			n->prev = m_last;
 			m_last->next = n;
 			m_last = n;
+			m_count++;
 		}
 		else {
 			m_first = n;
 			m_last = n;
+			m_count++;
 		}
-		m_count++;
+		
 	}
 
 	void PopBack()
@@ -96,8 +98,9 @@ public:
 			}
 			m_last = m_last->prev;
 			delete n;
+
+			m_count--;
 		}
-		m_count--;
 	}
 
 	void PushFront(T value)
@@ -109,12 +112,16 @@ public:
 			n->next = m_first;
 			m_first->prev = n;
 			m_first = n;
+
+			m_count++;
 		}
 		else {
 			m_first = n;
 			m_last = n;
+
+			m_count++;
 		}
-		m_count++;
+		
 	}
 
 	void PopFront()
@@ -133,13 +140,21 @@ public:
 	}
 
 	void Clear() {
-		for (auto iter = begin(); iter != end(); iter++) {
-			PopFront();
+		Node* prevNode;
+		LinkedList<T>::Node* newNode = m_last;
+		while (newNode != nullptr)
+		{
+			prevNode = newNode->prev;
+			delete newNode;
+			newNode = prevNode;
 		}
+		m_first = nullptr;
+		m_last = nullptr;
+		m_count = 0;
 	}
 
 	void Sort() {
-
+		//TODO
 	}
 
 	unsigned int Count() {
@@ -163,10 +178,10 @@ public:
 		Node* nodeC = nodeA->next;
 
 		if (iter.node == m_first) {
-			PushFront();
+			PushFront(value);
 		}
 		else if (iter.node == m_last) {
-			PushBack();
+			PushBack(value);
 		}
 		else {
 			newNodeb->prev = nodeA;

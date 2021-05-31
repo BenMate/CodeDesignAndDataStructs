@@ -1,2 +1,13 @@
 ﻿  AIE_LinkedListTest.cpp
-  AIE_UnitTests.vcxproj -> C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\x64\Debug\AIE_UnitTests.dll
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_01_Templates\LinkedList.h(175,20): error C2064: term does not evaluate to a function taking 0 arguments
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_01_Templates\LinkedList.h(172): message : while compiling class template member function 'LinkedList<int>::Iterator LinkedList<int>::Insert(LinkedList<int>::Iterator,const T &)'
+          with
+          [
+              T=int
+          ]
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_UnitTests\AIE_LinkedListTest.cpp(158): message : see reference to function template instantiation 'LinkedList<int>::Iterator LinkedList<int>::Insert(LinkedList<int>::Iterator,const T &)' being compiled
+          with
+          [
+              T=int
+          ]
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_UnitTests\AIE_LinkedListTest.cpp(18): message : see reference to class template instantiation 'LinkedList<int>' being compiled
