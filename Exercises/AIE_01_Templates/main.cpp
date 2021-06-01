@@ -42,10 +42,13 @@ int main(int argc, char** argv)
 	//example of remove
 	auto iter2 = std::find(NewList2.begin(), NewList2.end(), 10);
 	NewList2.Remove(iter2);
+
+	NewList2.PopBack();
+	NewList2.PopBack();
+	NewList2.PopBack();
+
 	//looping through and displays new list
 	for (auto& iter2 : NewList2) {
 		std::cout << iter2 << std::endl;
-	}
-	
-	
+	}	
 };

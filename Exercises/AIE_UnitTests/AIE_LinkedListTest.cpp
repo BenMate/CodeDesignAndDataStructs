@@ -93,15 +93,18 @@ namespace AIEUnitTests
 
 			//removes the last value in list
 			list.PopBack();
+			list.PopBack();
+			list.PopBack();
+	
 
 			//checks if the lastnode isnt null
 			Assert::IsNotNull(list.LastNode());
 
 			//checks if the last node = 30
-			Assert::IsTrue(list.LastNode()->value == 30);
+			Assert::IsTrue(list.LastNode()->value == 10);
 
 			//checks if the count went down to 3
-			Assert::IsTrue(list.Count() == 3);
+			Assert::IsTrue(list.Count() == 1);
 			
 		}
 
@@ -144,38 +147,52 @@ namespace AIEUnitTests
 		TEST_METHOD(Can_Clear) {
 			LinkedList<int> list = { 10, 20, 30, 40 };
 
+			//should remove all items in the list
 			list.Clear();
 
+			//checks if the position are null
 			Assert::IsNull(list.LastNode());
 			Assert::IsNull(list.FirstNode());
 
+			//the lists count should be 0
 			Assert::IsTrue(list.Count() == 0);
 		}
 
 		TEST_METHOD(Can_Insert) {
 			LinkedList<int> list = { 10, 20, 30, 40 };
 
-			//fix
-			list.Insert();//0,5 ? 
+			//finds the position at 10
 
+			auto iter = std::find(list.begin(), list.end(), 10);			
+			//insets 5 at the position of 10
+			list.Insert(iter,5);
+
+			//checks if there is a value in the first and last position in list
 			Assert::IsNotNull(list.LastNode());
 			Assert::IsNotNull(list.FirstNode());
 
-			Assert::IsTrue(list.FirstNode()->value == 25);
+			//after adding an item in the first position it should now be 5
+			Assert::IsTrue(list.FirstNode()->value == 5);
 
+			//the count should have gone up by 1
 			Assert::IsTrue(list.Count() == 5);
 		}
 
 		TEST_METHOD(Can_Remove) {
 			LinkedList<int> list = { 10, 20, 30, 40 };
 
-			list.Remove(0);
+			//finds the position at 10
+			auto iter = std::find(list.begin(), list.end(), 10);
+			//removes the position at 10
+			list.Remove(iter);
 
+			//checks if there is a value in the first and last position in list
 			Assert::IsNotNull(list.LastNode());
 			Assert::IsNotNull(list.FirstNode());
 
+			//after removing the first number the first should now be 20
 			Assert::IsTrue(list.FirstNode()->value == 20);
-
+			//the list size should now be 1 less then 4
 			Assert::IsTrue(list.Count() == 3);
 		}
 

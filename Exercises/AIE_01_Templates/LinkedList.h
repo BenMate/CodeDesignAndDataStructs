@@ -96,7 +96,16 @@ public:
 			{
 				m_last->prev->next = nullptr;
 			}
+
+
+
 			m_last = m_last->prev;
+
+			if (m_last == nullptr)
+			{
+				m_first = nullptr;
+			}
+
 			delete n;
 
 			m_count--;
@@ -112,16 +121,13 @@ public:
 			n->next = m_first;
 			m_first->prev = n;
 			m_first = n;
-
 			m_count++;
 		}
 		else {
 			m_first = n;
 			m_last = n;
-
 			m_count++;
 		}
-		
 	}
 
 	void PopFront()
@@ -134,6 +140,12 @@ public:
 				m_first->next->prev = nullptr;
 			}
 			m_first = m_first->next;
+
+			if (m_first == nullptr)
+			{
+				m_last = nullptr;
+			}
+
 			delete n;
 		}
 		m_count--;
@@ -157,6 +169,10 @@ public:
 		//TODO
 	}
 
+	Iterator Search(const T& value) {
+		return std::find(begin(), end(), value);
+	}
+
 	unsigned int Count() {
 		return m_count;
 	}
@@ -165,14 +181,10 @@ public:
 		return m_first == nullptr && m_last == nullptr;
 	}
 
-	Iterator Search(const T& value) {
-		return std::find(begin(), end(), value);
-	}
-
 	Iterator Insert(Iterator iter, const T& value) {
 		Node* nodeA = iter.node;
 
-		Node* newNodeb = newNodeb();
+		Node* newNodeb = new Node();
 		newNodeb->value = value;
 
 		Node* nodeC = nodeA->next;
