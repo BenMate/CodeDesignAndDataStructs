@@ -7,7 +7,7 @@ bool isValidHexCode(std::string word) {
 		return false;
 	}
 
-	for (int i = 1; i < 7; i++)
+	for (int i = 1; i < word.size(); i++)
 	{
 		if (word[i] < '0' && word[i] >'9') {
 			return false;
