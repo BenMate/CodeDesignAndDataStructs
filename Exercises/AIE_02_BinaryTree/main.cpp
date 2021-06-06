@@ -42,15 +42,8 @@ void PostOrderPrint(Node* n)
 	std::cout << n->value << std::endl;
 }
 
-void FindNode(int value, Node*& node, Node*& parent) {
+Node* FindNode(int value, Node* root, Node*& parent) {
 	//TODO:
-	//node = the found node
-	//parent = the found nodes parent
-
-	//Node *n = nullptr;
-	//Node *p = nullptr;
-	//FindNow(9,n,p)
-
 
 }
 
@@ -62,63 +55,28 @@ Node* Find(Node* n, int value)
 	return n;
 }
 
-void Insert(Node* root, Node* nodeToInsert)
-{
-	auto InsertValue = nodeToInsert->value;
-	int rootValue = root->value;
-
-	//checks right side
-	if (InsertValue > rootValue) {
-		if (root->right != nullptr) {
-			Insert(root->right, nodeToInsert);
-		}
-		else //creates the right node
-			root->right = nodeToInsert;
-	}
-	//checks left side
-	else if (InsertValue < rootValue) {
-		if (root->left != nullptr) {
-			Insert(root->left, nodeToInsert);
-		}
-		else //creates the left node
-			root->left = nodeToInsert;
-	}
+void Insert(Node*& node, Node* nodeToInsert)
+{	
+	if (node == nullptr) 
+		node = nodeToInsert;
+	if (node->value > nodeToInsert->value) 
+		Insert(node->right, nodeToInsert);
+	if (node->value < nodeToInsert->value) 
+		Insert(node->left, nodeToInsert);
 }
 
-void Remove(int value, Node* root, Node* nodeToRemove)
-{
-	// TODO
-	//if the value is the root
-	if (nodeToRemove->value == value) {
-		Node* ntr = root;
-		root = nodeToRemove->right;
-		Insert(nodeToRemove->left, root);
-		delete ntr;
-	}
+void Remove(Node* root, int value) {
+	Node* parent = nullptr;
+	Node* nodeToRemove = FindNode(value, root, parent);
+	if (nodeToRemove == nullptr) return;
 
-	if (nodeToRemove->left->value == value) {
-		Node* ntd = nodeToRemove->left;
-		nodeToRemove->left = nullptr;
-		Insert(ntd->left, root);
-		Insert(ntd->right, root);
-		delete ntd;
-	}
+	if (parent == nullptr) root = nullptr;
+	else if (parent->left == nodeToRemove) parent->left = nullptr;
+	else if (parent->right == nodeToRemove) parent->right = nullptr;
 
-	else if (nodeToRemove->right->value == value) {
-		Node* ntd = nodeToRemove->right;
-		nodeToRemove->right = nullptr;
-		Insert(ntd->left, root);
-		Insert(ntd->right, root);
-		delete ntd;
-	}
-
-	else if (value < nodeToRemove->value) {
-		Remove(value, nodeToRemove->left, root);
-	}
-
-	else if (value > nodeToRemove->value) {
-		Remove(value, nodeToRemove->right, root);
-	}
+	Insert(root, nodeToRemove->left);
+	Insert(root, nodeToRemove->right);
+	delete nodeToRemove;
 }
 
 int Height(Node* n)
@@ -132,32 +90,6 @@ int Depth(Node* root, Node* n)
 	// TODO
 	return 0;
 }
-
-
-//void ForEachDfs(Node* root, std::function<void(Node*)> fn)
-//{
-//	// Create the stack
-//	std::list<Node*> stack;
-//
-//	// add first node to the stack
-//	stack.push_back(root);
-//
-//	// while stack is not empty
-//	while (stack.empty() == false)
-//	{
-//		// remove the next node
-//		Node* n = stack.back();
-//		stack.pop_back();
-//
-//		// process the node
-//		fn(n);
-//
-//		// add children to the stack
-//		if (n->right) stack.push_back(n->right);
-//		if (n->left) stack.push_back(n->left);
-//	}
-//}
-
 
 void ForEachPreOrder(Node* n, std::function<void(Node*)> fn)
 {
@@ -182,15 +114,18 @@ void PrintNode(Node* n) {
 
 int main(int argc, char** argv)
 {
-	Node root(6);
+	Node *root = nullptr;
+	Insert(root, new Node(6));
+	//Remove(6, root, new Node(6));
+	Remove(root, 4);
 
-	Insert(&root, new Node(4));
-	Insert(&root, new Node(2));
-	Insert(&root, new Node(5));
-	Insert(&root, new Node(8));
-	Insert(&root, new Node(7));
-	Insert(&root, new Node(9));
+	//auto f = Find(new Node(*root), 4);
+	//PrintNode(f);
 
+
+	// Call our ForEach Method defined above,
+	// Pass in the "PrintNode" method
+	ForEachPreOrder(root, PrintNode);
 
 	// our tree Becomes
 	/***********************
@@ -203,30 +138,14 @@ int main(int argc, char** argv)
 			2   5   7   9
 	*************************/
 
-	//displays a value if it can find it
-	std::cout << std::endl;
-	auto f = Find(new Node(root), 9);
-	PrintNode(f);
-	std::cout << std::endl;
+	/*We can also pass in a lambda function
+	 directly as a parameter
 
-	//displays new list after removing 4
-	Remove(4, &root, new Node(4));
-	std::cout << std::endl;
-	PrintNode(f);
-	std::cout << std::endl;
-
-	// Call our ForEach Method defined above,
-	// Pass it the "PrintNode" method
-
-	ForEachPreOrder(&root, PrintNode);
-
-	// We can also pass in a lambda function
-	// directly as a parameter
-
-	/*
 	ForEachDfsRecursive(&root, [](Node* n) {
 	std::cout << n->value << ", ";
+
 	});
 	*/
+	
 	return 0;
 }
