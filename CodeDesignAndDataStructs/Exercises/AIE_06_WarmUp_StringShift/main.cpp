@@ -37,7 +37,6 @@ std::string shiftLetters(std::string w, int n)
 	{
 		w.insert(i, 1, ' ');
 	}
-
 	return w;
 }
 int main(int argc, char** argv)

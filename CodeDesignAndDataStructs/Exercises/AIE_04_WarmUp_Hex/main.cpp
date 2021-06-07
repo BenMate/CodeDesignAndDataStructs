@@ -2,48 +2,29 @@
 #include <string>
 // TODO: Write your function here
 
-bool isValidHexCode(std::string word) {
-	if (word.size() != 7 || word[0] != '#') {
-		return false;
-	}
 
-	for (int i = 1; i < word.size(); i++)
+bool isValidHexCode(std::string check)
+{
+	if (check[0] != '#' || check.length() != 7)
+		return false;
+	for (int i = 1; i < check.length(); i++)
 	{
-		if (word[i] < '0' && word[i] >'9') {
-			return false;
+		if (check[i] >= 'a' && check[i] <= 'f')
+		{
+			continue;
 		}
-		else if (isupper(word[i]) < 'A' && isupper(word[i]) > 'F') {
-			return false;
+		if (check[i] >= 'A' && check[i] <= 'F')
+		{
+			continue;
 		}
-		else if (islower(word[i]) < 'a' && islower(word[i]) > 'f') {
-			return false;
-		}	
+		if (check[i] >= '0' && check[i] <= '9')
+		{
+			continue;
+		}
+		return false;
 	}
 	return true;
 }
-//bool isValidHexCode(std::string check)
-//{
-//
-//	if (check[0] != '#' || check.length() != 7)
-//		return false;
-//	for (int i = 1; i < check.length(); i++)
-//	{
-//		if (check[i] >= 'a' && check[i] <= 'f')
-//		{
-//			continue;
-//		}
-//		if (check[i] >= 'A' && check[i] <= 'F')
-//		{
-//			continue;
-//		}
-//		if (check[i] >= '0' && check[i] <= '9')
-//		{
-//			continue;
-//		}
-//		return false;
-//	}
-//	return true;
-//}
 
 int main()
 {

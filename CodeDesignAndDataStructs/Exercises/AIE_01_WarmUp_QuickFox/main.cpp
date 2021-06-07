@@ -28,10 +28,6 @@ std::vector<std::string> Explode(char seperator, const char* str)
         }
         i++;
     }
-
-
-
-
     return result;
 }
 
@@ -46,7 +42,6 @@ int main(int argc, char** argv)
         std::cout << w << std::endl;
     }
 
-
     // Test 2
     std::cout << "---------------------------------------------------------" << std::endl;
     auto kvp = Explode('&', "aaa:10&bbb:20ccc:30&&&&&ddd:30");
@@ -55,7 +50,6 @@ int main(int argc, char** argv)
     for (auto& w : kvp) {
         std::cout << w << std::endl;
     }
-
 
     return 0;
 }

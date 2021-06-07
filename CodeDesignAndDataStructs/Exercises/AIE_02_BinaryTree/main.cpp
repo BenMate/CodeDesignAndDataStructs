@@ -101,28 +101,43 @@ Node* Remove(Node* root, Node* node) {
 
 int Height(Node* root)
 {
-	// TODO
 	if (root == nullptr) return 0;
 	
 	int heightLeft = Height(root->left);
 	int heightRight = Height(root->right);
 
-	if (heightLeft > heightRight) {
+	if (heightLeft > heightRight) {	
 		return heightLeft + 1;
 	}
 	else {
-		return heightRight + 1;
+		return heightLeft + 1;
 	}
 }
+
+
+
 
 int Depth(Node* root, Node* n)
 {
 	// TODO
 
-	//find height of selected node????
+	//mabybe....root goes down till we reach n value then return the count.
 
-	//start from bottom and return the count of paranets??? 
+	//maybe count each height until we reach target reset count then continue the count return the final number???
 
+
+	if (root == nullptr) return 0;
+
+	int DepthRight = Depth(root->right,n->right);
+	int DepthLeft = Depth(root->left,n->left);
+
+	if (DepthLeft > DepthRight) {
+		return DepthLeft + 1;
+	}
+	if (DepthRight > DepthLeft) {
+		return DepthRight+1;
+	}
+	
 	return 0;
 }
 
@@ -149,29 +164,30 @@ int main(int argc, char** argv)
 {
 	Node *root = nullptr;
 	Insert(root, new Node(6));
-
-	Insert(root, new Node(4));
-			Insert(root, new Node(2));
-			Insert(root, new Node(5));
+		Insert(root, new Node(4));
+		Insert(root, new Node(2));
+		Insert(root, new Node(5));
 	Insert(root, new Node(8));
 		Insert(root, new Node(7));
-		Insert(root, new Node(9));
-	
+		Insert(root, new Node(9)); 
+
 	ForEachPreOrder(root, PrintNode);
 
 	std::cout << std::endl;
-	Remove(root, Find(root,8));
 
-	auto f = Find(new Node(*root), 9); 
-	
+	Remove(root, Find(root,8)); 
 	ForEachPreOrder(root, PrintNode);
 
 	std::cout << std::endl;
-	std::cout << "Found: ";
-	PrintNode(f);
+
+	auto f = Find(new Node(*root), 9);
+	std::cout << "Found: "; PrintNode(f);
 
 	std::cout << std::endl;
 	std::cout << "Height: " <<  Height(root);
+
+	std::cout << std::endl;
+	std::cout << "Depth: " << Depth(root,Find(root,9));
 
 	// our tree Becomes
 	/***********************
