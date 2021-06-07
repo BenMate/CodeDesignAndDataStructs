@@ -42,10 +42,6 @@ void PostOrderPrint(Node* n)
 	std::cout << n->value << std::endl;
 }
 
-Node* FindNode(int value, Node* root, Node*& parent) {
-	//TODO:
-
-}
 
 Node* Find(Node* n, int value)
 {
@@ -59,15 +55,15 @@ void Insert(Node*& node, Node* nodeToInsert)
 {	
 	if (node == nullptr) 
 		node = nodeToInsert;
-	if (node->value > nodeToInsert->value) 
-		Insert(node->right, nodeToInsert);
 	if (node->value < nodeToInsert->value) 
+		Insert(node->right, nodeToInsert);
+	if (node->value > nodeToInsert->value) 
 		Insert(node->left, nodeToInsert);
 }
 
 void Remove(Node* root, int value) {
 	Node* parent = nullptr;
-	Node* nodeToRemove = FindNode(value, root, parent);
+	Node* nodeToRemove = Find(parent,value);
 	if (nodeToRemove == nullptr) return;
 
 	if (parent == nullptr) root = nullptr;
@@ -116,8 +112,12 @@ int main(int argc, char** argv)
 {
 	Node *root = nullptr;
 	Insert(root, new Node(6));
-	//Remove(6, root, new Node(6));
-	Remove(root, 4);
+	Insert(root, new Node(8));
+	
+	auto find = Find(root,8);
+	std::cout << find->value << std::endl;
+
+	Remove(root, 8);
 
 	//auto f = Find(new Node(*root), 4);
 	//PrintNode(f);
