@@ -101,44 +101,41 @@ Node* Remove(Node* root, Node* node) {
 
 int Height(Node* root)
 {
+	//if we failed to input a number value return null;
 	if (root == nullptr) return 0;
 	
+	//calculate the height left and right
 	int heightLeft = Height(root->left);
 	int heightRight = Height(root->right);
 
-	if (heightLeft > heightRight) {	
+	//return values for left and right
+	if (heightLeft > heightRight) {		
 		return heightLeft + 1;
 	}
 	else {
-		return heightLeft + 1;
+		return heightRight + 1;
 	}
 }
 
-
-
-
 int Depth(Node* root, Node* n)
 {
-	// TODO
-
-	//mabybe....root goes down till we reach n value then return the count.
-
-	//maybe count each height until we reach target reset count then continue the count return the final number???
-
-
-	if (root == nullptr) return 0;
-
-	int DepthRight = Depth(root->right,n->right);
-	int DepthLeft = Depth(root->left,n->left);
-
-	if (DepthLeft > DepthRight) {
-		return DepthLeft + 1;
+	if (root == nullptr || n == nullptr)
+		return 0;
+	int depth = 0;
+	if (n->value < root->value)
+	{
+		depth = Depth(root->left, n);
+		return depth + 1;
 	}
-	if (DepthRight > DepthLeft) {
-		return DepthRight+1;
+	else if (n->value > root->value)
+	{
+		depth = Depth(root->right, n);
+		return depth + 1;
 	}
-	
-	return 0;
+	else
+	{
+		return depth;
+	}
 }
 
 void ForEachPreOrder(Node* n, std::function<void(Node*)> fn)

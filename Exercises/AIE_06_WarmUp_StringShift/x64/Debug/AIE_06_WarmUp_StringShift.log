@@ -1,3 +1,0 @@
-﻿  main.cpp
-C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_06_WarmUp_StringShift\main.cpp(6,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  AIE_06_WarmUp_StringShift.vcxproj -> C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\x64\Debug\AIE_06_WarmUp_StringShift.exe
