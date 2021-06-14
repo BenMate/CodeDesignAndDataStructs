@@ -60,23 +60,23 @@ void IPCServerApp::Run() {
 		{
 			std::cout << "Could not create file mapping object: " <<
 				GetLastError() << std::endl;
-		
 
-		if (m_data == nullptr)
-		{
-			std::cout << "Could not map view of file: " <<
-				GetLastError() << std::endl;
+			if (m_data == nullptr)
+			{
+				std::cout << "Could not map view of file: " <<
+					GetLastError() << std::endl;
 
-			CloseHandle(m_fileHandle);
-		}
+				CloseHandle(m_fileHandle);
+			}
 
-		// write to the memory block
-		*m_data = myData;
+			// write to the memory block
+			*m_data = myData;
 
-		// wait for a keypress to close
-		ch = _getch();
-		if (ch == 27) {
-			able = false;
+			// wait for a keypress to close
+			ch = _getch();
+			if (ch == 27) {
+				able = false;
+			}
 		}
 	}
 }

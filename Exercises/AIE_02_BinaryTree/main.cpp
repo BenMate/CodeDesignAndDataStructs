@@ -133,16 +133,14 @@ int Depth(Node* root, Node* n)
 		return depth + 1;
 	}
 	else
-	{
 		return depth;
-	}
+	
 }
 
 void ForEachPreOrder(Node* n, std::function<void(Node*)> fn)
 {
 	if (n == nullptr)
 		return;
-
 	// Invoke the fn for each node
 	fn(n);
 
@@ -186,7 +184,7 @@ int main(int argc, char** argv)
 	std::cout << std::endl;
 	std::cout << "Depth: " << Depth(root,Find(root,9));
 
-	// our tree Becomes
+	// Our tree Becomes
 	/***********************
 			      6
 				 / \

@@ -1,7 +1,11 @@
-﻿raylib.lib(core.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(core.obj)' or at 'C:\Users\s210052\Documents\CodeDesignAndDataStructs\bin\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(rglfw.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(rglfw.obj)' or at 'C:\Users\s210052\Documents\CodeDesignAndDataStructs\bin\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(shapes.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(shapes.obj)' or at 'C:\Users\s210052\Documents\CodeDesignAndDataStructs\bin\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(text.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(text.obj)' or at 'C:\Users\s210052\Documents\CodeDesignAndDataStructs\bin\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(textures.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(textures.obj)' or at 'C:\Users\s210052\Documents\CodeDesignAndDataStructs\bin\x64\Debug\raylib.pdb'; linking object as if no debug info
-raylib.lib(utils.obj) : warning LNK4099: PDB 'raylib.pdb' was not found with 'raylib.lib(utils.obj)' or at 'C:\Users\s210052\Documents\CodeDesignAndDataStructs\bin\x64\Debug\raylib.pdb'; linking object as if no debug info
-  AIE_IPC.vcxproj -> C:\Users\s210052\Documents\CodeDesignAndDataStructs\bin\x64\Debug\AIE_IPC.exe
+﻿  EntityEditorApp.cpp
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(23,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(26,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(27,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(29,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(30,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(69,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(72,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(97,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(100,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  AIE_IPC.vcxproj -> C:\Users\User\Desktop\Uni\DataBaseAndStructures\CodeDesignAndDataStructs\bin\x64\Debug\AIE_IPC.exe

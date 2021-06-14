@@ -39,8 +39,8 @@ void EntityEditorApp::Shutdown()
 
 }
 
-void EntityEditorApp::Update(float deltaTime) {
-
+void EntityEditorApp::Update(float deltaTime) 
+{
 
 	// select an entity to edit
 	static int selection = 0;
@@ -83,7 +83,8 @@ void EntityEditorApp::Update(float deltaTime) {
 
 	// move entities
 
-	for (int i = 0; i < ENTITY_COUNT; i++) {
+	for (int i = 0; i < ENTITY_COUNT; i++) 
+{
 		if (selection == i)
 			continue;
 
@@ -118,7 +119,7 @@ void EntityEditorApp::Draw()
 	}
 
 	// output some text, uses the last used colour
-	DrawText("Press ESC to quit", 630, 15, 12, LIGHTGRAY);
+	DrawText("Press ESC to quit", 630, 15, 13, LIGHTGRAY);
 
 	EndDrawing();
 }
