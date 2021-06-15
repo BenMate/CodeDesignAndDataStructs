@@ -1,3 +1,0 @@
-﻿  main.cpp
-C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_08_WarmUP_RemoveLastVowel\main.cpp(33,33): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  AIE_08_WarmUP_RemoveLastVowel.vcxproj -> C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\x64\Debug\AIE_08_WarmUP_RemoveLastVowel.exe
