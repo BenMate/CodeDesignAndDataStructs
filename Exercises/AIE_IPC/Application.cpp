@@ -1,7 +1,7 @@
 
-
 #include "Application.h"
 #include "raylib.h"
+#include "FixWindows.h"
 
 #define RAYGUI_IMPLEMENTATION
 #define RAYGUI_SUPPORT_ICONS

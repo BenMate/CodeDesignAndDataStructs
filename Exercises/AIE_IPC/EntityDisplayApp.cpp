@@ -1,5 +1,6 @@
 #include "EntityDisplayApp.h"
 #include "raylib.h"
+#include "FixWindows.h"
 
 EntityDisplayApp::EntityDisplayApp(int screenWidth, int screenHeight) :
 	Application(screenWidth, screenHeight, "Display App")

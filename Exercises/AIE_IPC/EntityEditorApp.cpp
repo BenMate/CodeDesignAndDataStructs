@@ -3,6 +3,7 @@
 #include <time.h>
 
 #include "raylib.h"
+#include "FixWindows.h"
 
 #define RAYGUI_SUPPORT_ICONS
 #include "raygui.h"

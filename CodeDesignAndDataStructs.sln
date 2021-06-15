@@ -41,6 +41,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AIE_08_WarmUP_RemoveLastVow
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AIE_Raylib_BinaryTreeVis", "Exercises\AIE_Raylib_BinaryTreeVis\AIE_Raylib_BinaryTreeVis\AIE_Raylib_BinaryTreeVis.vcxproj", "{1532490A-1EC5-4851-929D-8A51D4A4C6B1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AIE_PasswordHash", "Exercises\AIE_PasswordHash\AIE_PasswordHash\AIE_PasswordHash.vcxproj", "{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -177,6 +179,14 @@ Global
 		{1532490A-1EC5-4851-929D-8A51D4A4C6B1}.Release|x64.Build.0 = Release|x64
 		{1532490A-1EC5-4851-929D-8A51D4A4C6B1}.Release|x86.ActiveCfg = Release|Win32
 		{1532490A-1EC5-4851-929D-8A51D4A4C6B1}.Release|x86.Build.0 = Release|Win32
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Debug|x64.ActiveCfg = Debug|x64
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Debug|x64.Build.0 = Debug|x64
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Debug|x86.ActiveCfg = Debug|Win32
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Debug|x86.Build.0 = Debug|Win32
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Release|x64.ActiveCfg = Release|x64
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Release|x64.Build.0 = Release|x64
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Release|x86.ActiveCfg = Release|Win32
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -198,6 +208,7 @@ Global
 		{1563CD13-E83C-45E6-82AE-97CD058B83DE} = {3F56F8E9-EFBF-47FA-8F2E-C35856329929}
 		{D2190BBA-7FF5-4C11-AD3F-060DA2DFDFEA} = {071E3E82-1ABD-4BE5-932F-40E9E811B413}
 		{1532490A-1EC5-4851-929D-8A51D4A4C6B1} = {3F56F8E9-EFBF-47FA-8F2E-C35856329929}
+		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC} = {3F56F8E9-EFBF-47FA-8F2E-C35856329929}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CD2110A-6EF1-4A48-B16E-D2A0EDE6F922}
