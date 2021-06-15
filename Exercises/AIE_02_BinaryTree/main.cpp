@@ -71,7 +71,7 @@ Node* MinValue(Node*& node) {
 		currentNode = currentNode->left;
 	}
 	return currentNode;
-	}
+}
 
 
 
@@ -103,18 +103,14 @@ int Height(Node* root)
 {
 	//if we failed to input a number value return null;
 	if (root == nullptr) return 0;
-	
 	//calculate the height left and right
 	int heightLeft = Height(root->left);
 	int heightRight = Height(root->right);
-
 	//return values for left and right
-	if (heightLeft > heightRight) {		
+	if (heightLeft > heightRight) 	
 		return heightLeft + 1;
-	}
-	else {
+	else 
 		return heightRight + 1;
-	}
 }
 
 int Depth(Node* root, Node* n)
@@ -134,7 +130,6 @@ int Depth(Node* root, Node* n)
 	}
 	else
 		return depth;
-	
 }
 
 void ForEachPreOrder(Node* n, std::function<void(Node*)> fn)
