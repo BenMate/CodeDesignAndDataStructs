@@ -1,16 +1,22 @@
 #include "EntityDisplayApp.h"
+
 #include "raylib.h"
 #include "FixWindows.h"
 
 EntityDisplayApp::EntityDisplayApp(int screenWidth, int screenHeight) :
 	Application(screenWidth, screenHeight, "Display App")
 {
+	m_fileHandle = OpenFileMapping(FILE_MAP_ALL_ACCESS, FALSE, Shared_Path);
 
+	m_data = (Entity*)MapViewOfFile(m_fileHandle, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(Entity) * 10);
 }
 
 EntityDisplayApp::~EntityDisplayApp()
 {
-
+	// unmap the memory block since we're done with it
+	UnmapViewOfFile(m_data);
+	// close the shared file
+	CloseHandle(m_fileHandle);
 }
 
 void EntityDisplayApp::Startup()
@@ -32,7 +38,19 @@ void EntityDisplayApp::Draw()
 {
 	bool able = true;
 	while (able) {
-		 
+
+		if (m_fileHandle == nullptr)
+		{
+			GetLastError(); 
+			//print on screen waiting for file to open??
+		}
+
+		if (m_data == nullptr)
+		{
+			GetLastError();
+			CloseHandle(m_fileHandle);
+
+		}
 
 		BeginDrawing();
 

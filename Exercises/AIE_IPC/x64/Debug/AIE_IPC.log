@@ -1,0 +1,13 @@
+﻿  EntityDisplayApp.cpp
+  EntityEditorApp.cpp
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(37,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(40,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(41,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(43,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(44,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(85,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(88,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(112,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_IPC\EntityEditorApp.cpp(115,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  AIE_IPC.vcxproj -> C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\bin\x64\Debug\AIE_IPC.exe

@@ -29,6 +29,8 @@ private:
 	// TODO:
 	// Implement your own hash method here - note: signature should match the above
 
+
+
 	
 	// this method allows us to change which hash function is used.
 	std::function<unsigned int(const char* data, unsigned int size)> hashFn =

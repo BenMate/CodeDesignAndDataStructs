@@ -1,22 +1,36 @@
 #include "EntityEditorApp.h"
 #include <random>
 #include <time.h>
+#include <conio.h>
+#define RAYGUI_SUPPORT_ICONS
+#include "raygui.h"
 
 #include "raylib.h"
 #include "FixWindows.h"
 
-#define RAYGUI_SUPPORT_ICONS
-#include "raygui.h"
-
 EntityEditorApp::EntityEditorApp(int screenWidth, int screenHeight) : 
 	Application(screenWidth, screenHeight, "Entity Editor App")
 {
+	Startup();
 
+	m_fileHandle = CreateFileMapping(
+		INVALID_HANDLE_VALUE, // a handle to an existing virtual file, or invalid
+		nullptr, // optional security attributes
+		PAGE_READWRITE, // read/write access control
+		0,
+		sizeof(Entity) * 10, // size of the memory block, 
+		Shared_Path);
+
+	m_data = (Entity*)MapViewOfFile(m_fileHandle,
+		FILE_MAP_ALL_ACCESS,
+		0,
+		0,
+		sizeof(Entity) * 10);
 }
 
 EntityEditorApp::~EntityEditorApp()
 {
-
+	Shutdown();
 }
 
 void EntityEditorApp::Startup() {
@@ -36,7 +50,10 @@ void EntityEditorApp::Startup() {
 
 void EntityEditorApp::Shutdown()
 {
-
+	// unmap the memory block since we're done with it
+	UnmapViewOfFile(m_data);
+	// close the shared file
+	CloseHandle(m_fileHandle);
 }
 
 void EntityEditorApp::Update(float deltaTime) 
@@ -81,7 +98,6 @@ void EntityEditorApp::Update(float deltaTime)
 
 
 	// move entities
-
 	for (int i = 0; i < ENTITY_COUNT; i++) 
 {
 		if (selection == i)
@@ -100,6 +116,7 @@ void EntityEditorApp::Update(float deltaTime)
 		if (m_entities[i].y < 0)
 			m_entities[i].y += m_screenHeight;
 	}
+	//update here? d_data = m_entiti ??? idk
 }
 
 void EntityEditorApp::Draw()

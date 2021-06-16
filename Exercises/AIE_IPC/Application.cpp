@@ -1,5 +1,6 @@
 
 #include "Application.h"
+
 #include "raylib.h"
 #include "FixWindows.h"
 

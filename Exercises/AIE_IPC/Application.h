@@ -15,6 +15,8 @@ public:
 	virtual void Update(float deltaTime) = 0;
 	virtual void Draw() = 0;
 
+	const wchar_t Shared_Path[15] = L"MySharedMemory";
+
 protected:
 
 	int m_screenWidth;

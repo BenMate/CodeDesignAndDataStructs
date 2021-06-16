@@ -73,6 +73,8 @@ void BinaryTree::Remove(int a_nValue)
 }
 
 TreeNode* BinaryTree::Remove(TreeNode* root, TreeNode* nodeToRemove) {
+	//checks if empty
+	if (nodeToRemove == nullptr) return nullptr;
 
 	//checks root 
 	if (m_pRoot->GetData() == nodeToRemove->GetData())
@@ -84,8 +86,6 @@ TreeNode* BinaryTree::Remove(TreeNode* root, TreeNode* nodeToRemove) {
 		else if (m_pRoot->GetLeft() == nullptr && m_pRoot->GetRight() == nullptr)
 			m_pRoot = nullptr;
 	}
-	//checks if empty
-	if (nodeToRemove == nullptr) return nullptr;
 
 	//checks left
 	if (nodeToRemove->GetData() < root->GetData())

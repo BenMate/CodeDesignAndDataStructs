@@ -9,6 +9,10 @@
 IPCClientApp::IPCClientApp() 
 {
     std::cout << std::boolalpha;
+       
+    m_fileHandle = OpenFileMapping(FILE_MAP_ALL_ACCESS, FALSE, Shared_Path);
+
+    m_data = (MyData*)MapViewOfFile(m_fileHandle, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(MyData));
 }
 
 IPCClientApp::~IPCClientApp() 
@@ -25,11 +29,6 @@ void IPCClientApp::Run()
     int ch;
     bool able = true;
      
-    m_fileHandle = OpenFileMapping(FILE_MAP_ALL_ACCESS, FALSE, Shared_Path);
-
-    m_data = (MyData*)MapViewOfFile(m_fileHandle, FILE_MAP_ALL_ACCESS, 0, 0, sizeof(MyData));
-
-
     while (able) 
     {
         if (m_fileHandle == nullptr) 

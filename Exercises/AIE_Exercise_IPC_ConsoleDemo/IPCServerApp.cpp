@@ -9,18 +9,6 @@
 #include <time.h>
 
 IPCServerApp::IPCServerApp() {
-
-}
-
-IPCServerApp::~IPCServerApp() {
-	// unmap the memory block since we're done with it
-	UnmapViewOfFile(m_data);
-	// close the shared file
-	CloseHandle(m_fileHandle);
-}
-
-void IPCServerApp::Run() {
-
 	m_fileHandle = CreateFileMapping(
 		INVALID_HANDLE_VALUE, // a handle to an existing virtual file, or invalid
 		nullptr, // optional security attributes
@@ -34,7 +22,16 @@ void IPCServerApp::Run() {
 		0,
 		0,
 		sizeof(MyData));
+}
 
+IPCServerApp::~IPCServerApp() {
+	// unmap the memory block since we're done with it
+	UnmapViewOfFile(m_data);
+	// close the shared file
+	CloseHandle(m_fileHandle);
+}
+
+void IPCServerApp::Run() {
 	srand(time(NULL));
 	int i = 0;
 	float f = 0;
@@ -70,8 +67,8 @@ void IPCServerApp::Run() {
 			}
 
 			// write to the memory block
-			*m_data = myData;
 
+			*m_data = myData;
 			// wait for a keypress to close
 			ch = _getch();
 			if (ch == 27) {
