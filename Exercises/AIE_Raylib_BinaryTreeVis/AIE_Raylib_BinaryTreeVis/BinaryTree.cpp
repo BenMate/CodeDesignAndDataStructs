@@ -69,14 +69,11 @@ TreeNode* BinaryTree::GetMin(TreeNode*& node) {
 
 void BinaryTree::Remove(int a_nValue)
 {
-	
-	
 	Remove(m_pRoot, Find(a_nValue));
 }
 
 TreeNode* BinaryTree::Remove(TreeNode* root, TreeNode* nodeToRemove) {
-	//checks if empty
-	if (nodeToRemove == nullptr) return nullptr;
+
 	//checks root 
 	if (m_pRoot->GetData() == nodeToRemove->GetData())
 	{
@@ -87,6 +84,9 @@ TreeNode* BinaryTree::Remove(TreeNode* root, TreeNode* nodeToRemove) {
 		else if (m_pRoot->GetLeft() == nullptr && m_pRoot->GetRight() == nullptr)
 			m_pRoot = nullptr;
 	}
+	//checks if empty
+	if (nodeToRemove == nullptr) return nullptr;
+
 	//checks left
 	if (nodeToRemove->GetData() < root->GetData())
 		root->SetLeft(Remove(root->GetLeft(), nodeToRemove));
@@ -107,11 +107,11 @@ TreeNode* BinaryTree::Remove(TreeNode* root, TreeNode* nodeToRemove) {
 			return tempNode;
 		}
 		
-		TreeNode* temp = GetMin(nodeToRemove->GetRight());
-		nodeToRemove->GetData() = temp->GetData();
-		nodeToRemove->GetRight() = Remove(nodeToRemove->GetRight(), temp);
+		TreeNode* temp = GetMin(root->GetRight());
+		root->GetData() = temp->GetData();
+		root->GetRight() = Remove(root->GetRight(), temp);
 	}
-	return nodeToRemove;
+	return root;
 }
 
 void BinaryTree::PrintOrdered()

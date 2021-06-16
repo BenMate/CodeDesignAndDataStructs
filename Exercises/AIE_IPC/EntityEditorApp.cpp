@@ -20,7 +20,6 @@ EntityEditorApp::~EntityEditorApp()
 }
 
 void EntityEditorApp::Startup() {
-
 	srand(time(nullptr));
 	for (auto& entity : m_entities)
 	{
@@ -42,7 +41,6 @@ void EntityEditorApp::Shutdown()
 
 void EntityEditorApp::Update(float deltaTime) 
 {
-
 	// select an entity to edit
 	static int selection = 0;
 	static bool selectionEditMode = false;

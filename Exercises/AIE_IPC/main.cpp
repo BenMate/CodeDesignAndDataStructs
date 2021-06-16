@@ -30,7 +30,6 @@ int PromptInt(const std::string& message, std::function<bool(int value)> validat
 
 int main(int argc, char** argv)
 {
-
 	std::cout << "1. Run Display" << std::endl;
 	std::cout << "2. Run Editor" << std::endl;
 	int prompt = PromptInt("Run: ", [](int val) { 
