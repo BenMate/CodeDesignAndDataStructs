@@ -43,6 +43,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AIE_Raylib_BinaryTreeVis", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AIE_PasswordHash", "Exercises\AIE_PasswordHash\AIE_PasswordHash\AIE_PasswordHash.vcxproj", "{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AIE_09_WarmUp_AddArrayNumbers", "Exercises\AIE_09_WarmUp_AddArrayNumbers\AIE_09_WarmUp_AddArrayNumbers.vcxproj", "{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -187,6 +189,14 @@ Global
 		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Release|x64.Build.0 = Release|x64
 		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Release|x86.ActiveCfg = Release|Win32
 		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC}.Release|x86.Build.0 = Release|Win32
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}.Debug|x64.ActiveCfg = Debug|x64
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}.Debug|x64.Build.0 = Debug|x64
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}.Debug|x86.ActiveCfg = Debug|Win32
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}.Debug|x86.Build.0 = Debug|Win32
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}.Release|x64.ActiveCfg = Release|x64
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}.Release|x64.Build.0 = Release|x64
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}.Release|x86.ActiveCfg = Release|Win32
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +219,7 @@ Global
 		{D2190BBA-7FF5-4C11-AD3F-060DA2DFDFEA} = {071E3E82-1ABD-4BE5-932F-40E9E811B413}
 		{1532490A-1EC5-4851-929D-8A51D4A4C6B1} = {3F56F8E9-EFBF-47FA-8F2E-C35856329929}
 		{16CA8E76-DF69-4871-B44B-61F28FE5D3FC} = {3F56F8E9-EFBF-47FA-8F2E-C35856329929}
+		{FC5DB339-B02F-4D51-924E-95E72E5BF5AD} = {071E3E82-1ABD-4BE5-932F-40E9E811B413}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1CD2110A-6EF1-4A48-B16E-D2A0EDE6F922}

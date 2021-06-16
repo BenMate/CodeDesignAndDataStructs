@@ -9,20 +9,20 @@
 
 BinaryTree::BinaryTree()
 {
-    m_pRoot = nullptr;
+	m_pRoot = nullptr;
 }
 
 BinaryTree::~BinaryTree()
 {
-	while(m_pRoot)
+	while (m_pRoot)
 	{
 		Remove(m_pRoot->GetData());
 	}
 }
 
 // Return whether the tree is empty
-bool BinaryTree::IsEmpty() const 
-{ 
+bool BinaryTree::IsEmpty() const
+{
 	return (m_pRoot == nullptr);
 }
 
@@ -60,7 +60,7 @@ TreeNode* BinaryTree::FindNode(TreeNode* n, int a_nValue)
 TreeNode* BinaryTree::GetMin(TreeNode*& node) {
 
 	TreeNode* currentNode = node;
-	while (currentNode && currentNode->GetLeft() != nullptr)
+	while (currentNode->GetLeft() != nullptr)
 	{
 		currentNode = currentNode->GetLeft();
 	}
@@ -69,32 +69,49 @@ TreeNode* BinaryTree::GetMin(TreeNode*& node) {
 
 void BinaryTree::Remove(int a_nValue)
 {
-	TreeNode* nodeToRemove = new TreeNode(a_nValue);
-	Remove(m_pRoot,Find(a_nValue));
+	
+	
+	Remove(m_pRoot, Find(a_nValue));
 }
 
-TreeNode* BinaryTree::Remove(TreeNode* root, TreeNode* node) {
+TreeNode* BinaryTree::Remove(TreeNode* root, TreeNode* nodeToRemove) {
+	//checks if empty
+	if (nodeToRemove == nullptr) return nullptr;
+	//checks root 
+	if (m_pRoot->GetData() == nodeToRemove->GetData())
+	{
+		if (m_pRoot->GetLeft() == nullptr)
+			m_pRoot = m_pRoot->GetRight();
+		else if (m_pRoot->GetRight() == nullptr)
+			m_pRoot = m_pRoot->GetLeft();
+		else if (m_pRoot->GetLeft() == nullptr && m_pRoot->GetRight() == nullptr)
+			m_pRoot = nullptr;
+	}
+	//checks left
+	if (nodeToRemove->GetData() < root->GetData())
+		root->SetLeft(Remove(root->GetLeft(), nodeToRemove));
+	//checks right
+	else if (nodeToRemove->GetData() > root->GetData())
+		root->SetRight(Remove(root->GetRight(), nodeToRemove));
 
-	if (node == nullptr) return nullptr;
-
-	if (node->GetData() < root->GetData())
-		root->GetLeft() = Remove(root->GetLeft(), node);
-	else if (node->GetData() > root->GetData())
-		root->GetRight() = Remove(root->GetRight(), node);
+	//once the nodeToRemove = the root we get here
 	else {
+		//if the child on the left is empty
 		if (root->GetLeft() == nullptr) {
 			TreeNode* tempNode = root->GetRight();
 			return tempNode;
 		}
+		//if the child on the right is empty
 		else if (root->GetRight() == nullptr) {
 			TreeNode* tempNode = root->GetLeft();
 			return tempNode;
 		}
-		TreeNode* temp = GetMin(root->GetRight());
-		root->GetData() = temp->GetData();
-		root->GetRight() = Remove(root->GetRight(), temp);
+		
+		TreeNode* temp = GetMin(nodeToRemove->GetRight());
+		nodeToRemove->GetData() = temp->GetData();
+		nodeToRemove->GetRight() = Remove(nodeToRemove->GetRight(), temp);
 	}
-	return root;
+	return nodeToRemove;
 }
 
 void BinaryTree::PrintOrdered()
@@ -110,7 +127,7 @@ void BinaryTree::PrintOrderedRecurse(TreeNode* pNode)
 
 void BinaryTree::PrintUnordered()
 {
-    PrintUnorderedRecurse(m_pRoot);
+	PrintUnorderedRecurse(m_pRoot);
 	std::cout << std::endl;
 }
 
@@ -126,7 +143,7 @@ void BinaryTree::Draw(TreeNode* selected)
 
 void BinaryTree::Draw(TreeNode* pNode, int x, int y, int horizontalSpacing, TreeNode* selected)
 {
-	
+
 	horizontalSpacing /= 2;
 
 	if (pNode)
@@ -134,7 +151,7 @@ void BinaryTree::Draw(TreeNode* pNode, int x, int y, int horizontalSpacing, Tree
 		if (pNode->HasLeft())
 		{
 			DrawLine(x, y, x - horizontalSpacing, y + 80, RED);
-			
+
 			Draw(pNode->GetLeft(), x - horizontalSpacing, y + 80, horizontalSpacing, selected);
 		}
 

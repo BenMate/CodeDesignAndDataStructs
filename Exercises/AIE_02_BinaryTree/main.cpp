@@ -16,7 +16,6 @@ struct Node
 	// Overloaded Constructor
 	Node(int value) : value(value) {}
 
-	 
 	// Overloaded Constructor
 	Node(int value, Node* left, Node* right) : value(value), left(left), right(right) {}
 };
@@ -43,7 +42,6 @@ void PostOrderPrint(Node* n)
 	std::cout << n->value << std::endl;
 }
 
-
 Node* Find(Node* n, int value)
 {
 	if (n == nullptr) return nullptr;
@@ -62,7 +60,6 @@ void Insert(Node*& node, Node* nodeToInsert)
 		Insert(node->left, nodeToInsert);
 }
 
-
 Node* MinValue(Node*& node) {
 	
 	Node* currentNode = node;
@@ -72,8 +69,6 @@ Node* MinValue(Node*& node) {
 	}
 	return currentNode;
 }
-
-
 
 Node* Remove(Node* root, Node* node) {
 	
