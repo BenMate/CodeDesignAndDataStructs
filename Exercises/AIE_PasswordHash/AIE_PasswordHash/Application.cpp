@@ -85,7 +85,7 @@ int Application::PromptPassword(bool confirmPrompt)
 		std::string pwc;
 		std::getline(std::cin, pwc);
 
-		int pwch = hashFn(pwc.c_str(), pwc.length());
+		int pwch = hashFn(pwc.c_str(), pwc.length()); //hash function
 
 		if (pwh == pwch)
 		{
@@ -103,8 +103,24 @@ unsigned int Application::BasicHash(const char* data, unsigned int size)
 {
 	unsigned int hash = 0;
 
-	for (unsigned int i = 0; i < size; ++i)
-		hash += data[i];
+	for (unsigned int i = 0; i < size; ++i)//loops through the "data"
+		hash += data[i]; //combines data
 
-	return hash;
+	return hash; 
+	/*just returns the value meaning if numbers are jumbled it 
+	will still return the same value - example . abc bca are both the same value */
+}
+
+//make another hash
+
+unsigned int Application::BKDRHash(const char* data, unsigned int size)
+{	
+	
+	unsigned int hash = 0;
+	
+	//loops through data
+	for (unsigned int i = 0; i < size; ++i) {
+		hash = (hash * 131313) + data[i];
+	}
+	return (hash & 0x7fffffff);
 }

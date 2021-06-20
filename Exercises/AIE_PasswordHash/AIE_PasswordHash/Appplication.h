@@ -29,12 +29,12 @@ private:
 	// TODO:
 	// Implement your own hash method here - note: signature should match the above
 
-
+	static unsigned int BKDRHash(const char* data, unsigned int size);
 
 	
 	// this method allows us to change which hash function is used.
 	std::function<unsigned int(const char* data, unsigned int size)> hashFn =
-		Application::BasicHash;
+		Application::BKDRHash;
 
 private:
 

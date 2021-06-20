@@ -68,7 +68,6 @@ void EntityEditorApp::Update(float deltaTime)
 	static bool speedEditMode = false;
 	static Color colorPickerValue = WHITE;
 
-
 	if (GuiSpinner(Rectangle{ 90, 25, 125, 25 }, "Entity", &selection, 0, ENTITY_COUNT - 1, selectionEditMode)) selectionEditMode = !selectionEditMode;
 
 	int intX = (int)m_entities[selection].x;
@@ -116,7 +115,9 @@ void EntityEditorApp::Update(float deltaTime)
 		if (m_entities[i].y < 0)
 			m_entities[i].y += m_screenHeight;
 	}
-	//update here? d_data = m_entiti ??? idk
+	
+	//write to the memory block
+	*m_data = *m_entities;
 }
 
 void EntityEditorApp::Draw()
