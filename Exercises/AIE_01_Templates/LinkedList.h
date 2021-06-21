@@ -171,15 +171,17 @@ public:
 		int i, j;
 		int size = Count();
 
-		Node* nextNode;
-		LinkedList<T>::Node* newNode = m_first;
+		Node* tmp;
+		LinkedList<T>::Node* nodea = m_first;
+
+		nextNode = newNode->next;
 
 			for (i = 0; i < size - 1; i++)
 			{
 				notSorted = false;
 				for (j = 0; j < size - i - 1; j++)
 				{
-					if ( > ) // if (arr[j] > arr[j+1]) 
+					if (newNode->value > newNode->prev) // if (arr[j] > arr[j+1]) 
 					{
 						//swap  swap(&arr[j], &arr[j+1]);
 						notSorted = true;
