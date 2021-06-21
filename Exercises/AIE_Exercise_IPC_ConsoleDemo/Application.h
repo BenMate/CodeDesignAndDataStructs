@@ -15,13 +15,14 @@ public:
 		double d;
 	};
 
-	const wchar_t Shared_Path[15] = L"MySharedMemory";
+
 
 	Application();
 	virtual ~Application();
 	virtual void Run() = 0;
 	
 protected:
+	const wchar_t m_sharedPath[15] = L"MySharedMemory";
 private:
 
 };

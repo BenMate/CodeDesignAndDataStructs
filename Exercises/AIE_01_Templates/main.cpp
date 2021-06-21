@@ -38,14 +38,11 @@ int main(int argc, char** argv)
 	std::cout << std::endl << std::endl;
 
 	//creates a list
-	LinkedList<int> NewList2 = { 10,20,30,40 };
+	LinkedList<int> NewList2 = { 50,20,30,40,10 };
 	//example of remove
 	auto iter2 = std::find(NewList2.begin(), NewList2.end(), 10);
-	NewList2.Remove(iter2);
 
-	NewList2.PopBack();
-	NewList2.PopBack();
-	NewList2.PopBack();
+	NewList2.Sort();
 
 	//looping through and displays new list
 	for (auto& iter2 : NewList2) {

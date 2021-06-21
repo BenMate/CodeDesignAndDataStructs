@@ -15,13 +15,14 @@ public:
 	virtual void Update(float deltaTime) = 0;
 	virtual void Draw() = 0;
 
-	const wchar_t Shared_Path[15] = L"MySharedMemory";
-
 protected:
+
+	const wchar_t m_sharedPath[15] = L"MySharedMemory";
 
 	int m_screenWidth;
 	int m_screenHeight;
 	const char* m_windowTitle;
 
+	enum { ENTITY_COUNT = 50 };
 private:
 };

@@ -11,29 +11,30 @@
 EntityEditorApp::EntityEditorApp(int screenWidth, int screenHeight) : 
 	Application(screenWidth, screenHeight, "Entity Editor App")
 {
-	Startup();
+
+}
+
+EntityEditorApp::~EntityEditorApp()
+{
+
+}
+
+void EntityEditorApp::Startup() {
 
 	m_fileHandle = CreateFileMapping(
 		INVALID_HANDLE_VALUE, // a handle to an existing virtual file, or invalid
 		nullptr, // optional security attributes
 		PAGE_READWRITE, // read/write access control
 		0,
-		sizeof(Entity) * 10, // size of the memory block, 
-		Shared_Path);
+		sizeof(Entity) * ENTITY_COUNT, // size of the memory block, 
+		m_sharedPath);
 
 	m_data = (Entity*)MapViewOfFile(m_fileHandle,
 		FILE_MAP_ALL_ACCESS,
 		0,
 		0,
-		sizeof(Entity) * 10);
-}
+		sizeof(Entity) * ENTITY_COUNT);
 
-EntityEditorApp::~EntityEditorApp()
-{
-	Shutdown();
-}
-
-void EntityEditorApp::Startup() {
 	srand(time(nullptr));
 	for (auto& entity : m_entities)
 	{
@@ -116,8 +117,11 @@ void EntityEditorApp::Update(float deltaTime)
 			m_entities[i].y += m_screenHeight;
 	}
 	
-	//write to the memory block
-	*m_data = *m_entities;
+	// copy entities to memory mapped data
+	for (int i = 0; i < ENTITY_COUNT; i++)
+	{
+		m_data[i] = m_entities[i];
+	}
 }
 
 void EntityEditorApp::Draw()

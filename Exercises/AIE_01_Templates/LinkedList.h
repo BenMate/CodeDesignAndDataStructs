@@ -84,7 +84,7 @@ public:
 			m_last = n;
 			m_count++;
 		}
-		
+
 	}
 
 	void PopBack()
@@ -167,7 +167,30 @@ public:
 
 	void Sort() {
 		//TODO
+		bool notSorted;
+		int i, j;
+		int size = Count();
+
+		Node* nextNode;
+		LinkedList<T>::Node* newNode = m_first;
+
+			for (i = 0; i < size - 1; i++)
+			{
+				notSorted = false;
+				for (j = 0; j < size - i - 1; j++)
+				{
+					if ( > ) // if (arr[j] > arr[j+1]) 
+					{
+						//swap  swap(&arr[j], &arr[j+1]);
+						notSorted = true;
+					}
+				}
+			}
+			if (notSorted == false)
+				break;
+		
 	}
+
 
 	Iterator Search(const T& value) {
 		return std::find(begin(), end(), value);
@@ -197,10 +220,12 @@ public:
 		}
 		else {
 			newNodeb->prev = nodeA;
-			nodeA->next = newNodeb;
+			nodeC->prev = newNodeb;
 
 			newNodeb->next = nodeC;
-			nodeC->prev = newNodeb;
+			nodeA->next = newNodeb;
+
+			m_count++;
 		}
 		//return an iterator to the newly created node
 		return Iterator(newNodeb);
@@ -219,6 +244,7 @@ public:
 			node->prev->next = node->next;
 			node->next->prev = node->prev;
 			delete node;
+			m_count--;
 		}
 		return Iterator(iterator.node->next);
 	}

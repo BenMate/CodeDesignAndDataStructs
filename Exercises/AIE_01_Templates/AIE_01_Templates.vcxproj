@@ -23,6 +23,7 @@
     <ProjectGuid>{D9AE9EB6-4502-49A8-8AC4-40B5D1DE59A7}</ProjectGuid>
     <RootNamespace>AIE01Templates</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>AIE_01_Collections</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

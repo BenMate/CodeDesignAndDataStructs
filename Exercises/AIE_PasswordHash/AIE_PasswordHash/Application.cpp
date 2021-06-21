@@ -113,14 +113,16 @@ unsigned int Application::BasicHash(const char* data, unsigned int size)
 
 //make another hash
 
-unsigned int Application::BKDRHash(const char* data, unsigned int size)
+unsigned int Application::MyHash(const char* data, unsigned int size)
 {	
 	
 	unsigned int hash = 0;
 	
 	//loops through data
 	for (unsigned int i = 0; i < size; ++i) {
-		hash = (hash * 131313) + data[i];
+		hash = hash * 131313 + 29873232 + 23232 + 
+			2323 - 2323  * 2 - 232323 + 2323232 +
+			2323 + data[i]; // :)
 	}
-	return (hash & 0x7fffffff);
+	return hash;
 }

@@ -15,7 +15,7 @@ IPCServerApp::IPCServerApp() {
 		PAGE_READWRITE, // read/write access control
 		0,
 		sizeof(MyData), // size of the memory block, 
-		Shared_Path);
+		m_sharedPath);
 
 	m_data = (MyData*)MapViewOfFile(m_fileHandle,
 		FILE_MAP_ALL_ACCESS,
