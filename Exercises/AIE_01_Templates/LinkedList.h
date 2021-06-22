@@ -181,7 +181,7 @@ public:
 				notSorted = false;
 				for (j = 0; j < size - i - 1; j++)
 				{
-					if (newNode->value > newNode->prev) // if (arr[j] > arr[j+1]) 
+					if (newNode->value > newNode->next->value) // if (arr[j] > arr[j+1]) 
 					{
 						//swap  swap(&arr[j], &arr[j+1]);
 						notSorted = true;
