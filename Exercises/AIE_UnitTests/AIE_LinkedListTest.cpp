@@ -197,9 +197,24 @@ namespace AIEUnitTests
 		}
 
 		//TODO:
-		//TEST_METHOD(Can_Sort) {
-		//	Assert::Fail;
-		//}
+		TEST_METHOD(Can_Sort) {
+			LinkedList<int> list = { 20, 40, 10, 30 , 50};
+
+		
+			//sorts
+			list.Sort();
+
+			//checks if there is a value in the first and last position in list
+			Assert::IsNotNull(list.LastNode());
+			Assert::IsNotNull(list.FirstNode());
+
+			//after sorting the first should now be 10
+			Assert::IsTrue(list.FirstNode()->value == 10);
+			//last should be 40
+			Assert::IsTrue(list.FirstNode()->value == 40);
+			//the list size should still be 4
+			Assert::IsTrue(list.Count() == 4);
+		}
 
 	};
 }

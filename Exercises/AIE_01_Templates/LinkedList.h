@@ -97,8 +97,6 @@ public:
 				m_last->prev->next = nullptr;
 			}
 
-
-
 			m_last = m_last->prev;
 
 			if (m_last == nullptr)
@@ -167,30 +165,29 @@ public:
 
 	void Sort() {
 		//TODO
-		bool notSorted;
-		int i, j;
-		int size = Count();
+		bool isSorted = false;
+		int lastUnsorted = Count() - 1;
 
-		Node* tmp;
-		LinkedList<T>::Node* nodea = m_first;
+		while (!isSorted)
+		{
+			LinkedList<T>::Node* nodeA = m_first;
+			Node* nodeB = nodeA->next;
+			isSorted = true;
 
-		nextNode = newNode->next;
-
-			for (i = 0; i < size - 1; i++)
+			for (int i = 0; i < lastUnsorted; i++)
 			{
-				notSorted = false;
-				for (j = 0; j < size - i - 1; j++)
+				if (nodeA->value < nodeB->value)
 				{
-					if (newNode->value > newNode->next->value) // if (arr[j] > arr[j+1]) 
-					{
-						//swap  swap(&arr[j], &arr[j+1]);
-						notSorted = true;
-					}
+					T tmp = nodeA->value;
+					nodeA->value = nodeB->value;
+					nodeB->value = tmp;
+					isSorted = false;
 				}
+				nodeA = nodeB;
+				nodeB = nodeB->next;
 			}
-			if (notSorted == false)
-				break;
-		
+			lastUnsorted--;
+		}
 	}
 
 

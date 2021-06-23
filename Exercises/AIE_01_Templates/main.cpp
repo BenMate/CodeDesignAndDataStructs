@@ -35,10 +35,11 @@ int main(int argc, char** argv)
 		rIter = rIter->prev;
 	}
 
-	std::cout << std::endl << std::endl;
+	std::cout << std::endl << "Sort" << std::endl;
+	std::cout << std::endl;
 
 	//creates a list
-	LinkedList<int> NewList2 = { 50,20,30,40,10 };
+	LinkedList<int> NewList2 = { 4,6,2,3,8,9,10,17,14};
 	//example of remove
 	auto iter2 = std::find(NewList2.begin(), NewList2.end(), 10);
 

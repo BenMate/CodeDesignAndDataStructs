@@ -1,8 +1,0 @@
-﻿  Application.cpp
-  IPCClientApp.cpp
-C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_Exercise_IPC_ConsoleDemo\IPCClientApp.cpp(29,9): warning C4101: 'ch': unreferenced local variable
-  IPCServerApp.cpp
-C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\Exercises\AIE_Exercise_IPC_ConsoleDemo\IPCServerApp.cpp(35,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  main.cpp
-  Generating Code...
-  AIE_Exercise_IPC_ConsoleDemo.vcxproj -> C:\Users\s210052\Documents\CodeDesignAndDataStructs\CodeDesignAndDataStructs\x64\Debug\AIE_Exercise_IPC_ConsoleDemo.exe
