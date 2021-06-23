@@ -198,7 +198,7 @@ namespace AIEUnitTests
 
 		//TODO:
 		TEST_METHOD(Can_Sort) {
-			LinkedList<int> list = { 20, 40, 10, 30 , 50};
+			LinkedList<int> list = { 20, 40, 10, 50 , 30};
 
 		
 			//sorts
@@ -209,11 +209,11 @@ namespace AIEUnitTests
 			Assert::IsNotNull(list.FirstNode());
 
 			//after sorting the first should now be 10
-			Assert::IsTrue(list.FirstNode()->value == 10);
+			Assert::IsTrue(list.FirstNode()->value == 50);
 			//last should be 40
-			Assert::IsTrue(list.FirstNode()->value == 40);
+			Assert::IsTrue(list.LastNode()->value == 10);
 			//the list size should still be 4
-			Assert::IsTrue(list.Count() == 4);
+			Assert::IsTrue(list.Count() == 5);
 		}
 
 	};
